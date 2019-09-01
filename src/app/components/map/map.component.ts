@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { MapAPIService } from 'src/app/services/map-api.service';
+import { DynamicComponentService } from 'src/app/services/dynamic-component.service';
+import { MyCustomMapboxPopupComponent } from '../my-custom-mapbox-popup/my-custom-mapbox-popup.component';
 
 @Component({
   selector: 'app-map',
@@ -13,7 +15,7 @@ export class MapComponent implements OnInit {
    map: any;
    data = [];
    element: any;
-  constructor(public json: MapAPIService) { }
+  constructor(public json: MapAPIService,public dynamicComponentService : DynamicComponentService) { }
 
 
   ngOnInit(): void {
@@ -42,12 +44,10 @@ export class MapComponent implements OnInit {
   }
 
   marketDateJSON(argument) {
-      
-   // let popupContent = this.dynamicComponentService.injectComponent(MyCustomMapboxPopupComponent,
-     // x => console.log(x))
-          // aqui debiese ir una propiedad , 
-      // se necesita visualizar un modal con h5 name city 
-      // + boton para agregar lugar a lista de favoritos
+    // insertar luego en linea 62 parametro .setHTML
+    //let popupContent = this.dynamicComponentService.injectComponent(MyCustomMapboxPopupComponent,
+    //  x => console.log(x))
+  
 
     let coordinates = argument.Coordinates;
     let arr: [number, number] = [coordinates.lng, coordinates.lat];
@@ -58,10 +58,10 @@ export class MapComponent implements OnInit {
         lng: arr[0]
       })
      
-      
+           .setPopup(new mapboxgl.Popup({ offset: 25 })
+     .setHTML("HOLA"))
       .addTo(this.map)
-     // .setPopup(new mapboxgl.Popup({ offset: 25 })
-    // .setHTML(popupContent))
+ 
 
     // return marker;
   }
