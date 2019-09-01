@@ -19,6 +19,7 @@ export class MapComponent implements OnInit {
   ngOnInit(): void {
   
     mapboxgl.accessToken = 'pk.eyJ1IjoicGF0cmljaWF2YWxkZWJlbml0byIsImEiOiJjanphOHg4aGUwMXRzM29vOXozOTBycGFmIn0.eU9CSOC83F1iWUwy44ad5w';
+    // ** cambiar a environment **
 
     this.map = new mapboxgl.Map({
       container: 'map',
