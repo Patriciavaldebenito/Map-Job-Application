@@ -1,1 +1,41 @@
-<p>map works!</p>
+<div class=" map-app" >
+    <!-- I --> 
+  <div class="row">
+    <div class="col-12 container-title" width="80%">
+      <h1 class="title">{{ title }}</h1>
+    </div>
+  </div>
+
+ <!-- II --> 
+  <div class="row">
+    <div class="col-4 container-store">
+      <div class="store-favorite">
+          <h4>Lista lugares favoritos:</h4>
+          <ul *ngFor="let data of data">
+            <li>{{data.Name}}</li>
+          </ul>
+          <ul>
+            <li>#1</li>
+            <li>#2</li>
+            <li>#3</li>
+            <li>...</li>
+            <li>#n</li>
+    
+          </ul>
+      </div>
+     
+    </div>
+
+    <div class="col-8" style="justify-content: center; padding:1em;">
+      <div class="container-map">
+        <div id='map'></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row footer">
+      <div class="col-12" ></div>    
+  </div>
+</div>
+
